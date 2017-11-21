@@ -1,6 +1,6 @@
 s = '[1,2,3,4,5]'
 res=[]
-s = s.strip("[").strip("]")
+s = s.strip("[]")
 s = s.split(",")
 for e in s:    
     res.append(int(e))
