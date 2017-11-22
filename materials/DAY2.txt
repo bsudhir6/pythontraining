@@ -1,0 +1,904 @@
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+D:\Desktop\PPT>cd python/hands
+
+D:\Desktop\PPT\python\hands>python
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> l = [1,2,3]
+>>> len(l)
+3
+>>> 2 in l
+True
+>>> l == [1,2]
+False
+>>> for e in l:
+...     print(e)
+...
+1
+2
+3
+>>> el = []
+>>> l = [ (1,2), (3,4)]
+>>> l = [ ( {1},{2}), ({3},{4})]
+>>> l[0]
+({1}, {2})
+>>> tmp =l[0]
+>>> tmp
+({1}, {2})
+>>> tmp[1]
+{2}
+>>> l[0][1]
+{2}
+>>> d = {'ok': 1, 'nok':2 }
+>>> type(dict)
+<class 'type'>
+>>> type(d)
+<class 'dict'>
+>>> len(d)
+2
+>>> 'ok' in d
+True
+>>> 'new' not in d
+True
+>>> d.keys()
+dict_keys(['nok', 'ok'])
+>>> d.values()
+dict_values([2, 1])
+>>> d.items()
+dict_items([('nok', 2), ('ok', 1)])
+>>> d
+{'nok': 2, 'ok': 1}
+>>> d['nok']
+2
+>>> d['nok'] = 20
+>>> d['hj'] = 400
+>>> d
+{'nok': 20, 'ok': 1, 'hj': 400}
+>>> for e in d:
+...     print(e, d[e])
+...
+nok 20
+ok 1
+hj 400
+>>> d = { 1:'ok', 2:'nok'}
+>>> #add new key 30 with value 40, update 2 with 40
+... #and iterate to print key and value
+...
+>>> d[30] =40
+>>> d
+{1: 'ok', 2: 'nok', 30: 40}
+>>> d[2] = 40
+>>> d
+{1: 'ok', 2: 40, 30: 40}
+>>> d['2'] = 30
+>>> d
+{'2': 30, 1: 'ok', 2: 40, 30: 40}
+>>> del d['2']
+>>> d
+{1: 'ok', 2: 40, 30: 40}
+>>> for key in d:
+...     print(key, d[key])
+...
+1 ok
+2 40
+30 40
+>>> ed = {}
+>>> type(ed)
+<class 'dict'>
+>>> for key,value in d.items():
+...     print(key,value)
+...
+1 ok
+2 40
+30 40
+>>> list(zip([10,20], [100,200]))
+[(10, 100), (20, 200)]
+>>> list(enumerate([10,20]))
+[(0, 10), (1, 20)]
+>>> dict(zip([10,20], [100,200]))
+{10: 100, 20: 200}
+>>> d = {}
+>>> d['key'] = 'ok'
+>>> d
+{'key': 'ok'}
+>>> d[2] = 30
+>>> d
+{2: 30, 'key': 'ok'}
+>>> d[2] = 400
+>>> d
+{2: 400, 'key': 'ok'}
+>>> d[2] = d[2]+1
+>>> d
+{2: 401, 'key': 'ok'}
+>>> len(d)
+2
+>>> 2 in d
+True
+>>> for k in d:
+...     print(k, d[k])
+...
+2 401
+key ok
+>>> 401 in d
+False
+>>> d = { 'nok': 2}
+>>> len(d)
+1
+>>> 'nok' in d
+True
+>>> d['nok']
+2
+>>> d['nok'] = 30
+>>> d['new'] = 30
+>>> for k in d:
+...     print(k, d[k])
+...
+nok 30
+new 30
+>>> l = [1,2,3]
+>>> res = [1,4,9]
+>>> res = []
+>>> for e in l:
+...     res.append(e*e)
+...
+>>> res
+[1, 4, 9]
+>>> res = ['1', '2', '3']
+>>> res = []
+>>> for e in l:
+...     res.append(str(e))
+...
+>>> res
+['1', '2', '3']
+>>> l
+[1, 2, 3]
+>>> l
+[1, 2, 3]
+>>> res = [ e*e for e in l]
+>>> res
+[1, 4, 9]
+>>> res = { e*e for e in l}
+>>> res
+{1, 4, 9}
+>>> res = { e:e*e for e in l}
+>>> res = [ e*e for e in l if e %2 ==1]
+>>> res
+[1, 9]
+>>> s = "hello world"
+>>> d = {ch:s.count(ch)    for ch in s}
+>>> d
+{'l': 3, ' ': 1, 'r': 1, 'o': 2, 'd': 1, 'e': 1, 'w': 1, 'h': 1}
+>>> l
+[1, 2, 3]
+>>> 'h', s.count('h')
+('h', 1)
+>>> l = [ ('A', 1), ('B', 2)]
+>>> res = [ 'A', 'B']
+>>> #[ l[e][e   for e in l]
+...
+>>> [e[0] for e in l]
+['A', 'B']
+>>> res = []
+>>> for e in l:
+...     t = e[0]
+...     res.append(t)
+...
+>>> res
+['A', 'B']
+>>> for e in l:
+...     print(e)
+...     res.append(e[0])
+...
+('A', 1)
+('B', 2)
+>>> e = ('A', 1)
+>>> e[0]
+'A'
+>>> e = ('B', 2)
+>>> e[0]
+'B'
+>>> import glob
+>>> glob.glob("*")
+['data', 'DAY1.txt', 'first.py', 'pkg', 'reference', 'syn.txt']
+>>> f = open('first.py', 'rt')
+>>> lines = f.readlines()
+>>> f.close()
+>>> f = open('first.py.bk', 'wt')
+>>> f.writelines(lines)
+>>> f.close()
+>>> glob.glob("*")
+['data', 'DAY1.txt', 'first.py', 'first.py.bk', 'pkg', 'reference', 'syn.txt']
+>>> with open(r'first.py', 'rt') as f:
+...     lines = f.readlines()
+...
+>>> lines
+['import sys \n', '\n', '#a = sys.argv[1]\n', '#b = sys.argv[2]\n', '\n', '#prin
+t(int(a) + int(b))\n', '\n', '########################\n', 's = "Hello World"\n'
+, '#H - 1\n', '#e - 1\n', '#l - 3\n', 'd = {}\n', '\n', 'for ch in s:\n', '    c
+nt = 0\n', '    for ch1 in s:\n', '        if ch == ch1:\n', '            cnt =
+cnt + 1\n', '    d[ch] = cnt \n', '    print(d)\n', '    \n', '#################
+#######################\n', 'd = {}\n', 'for ch in s:\n', '    if ch in d: \n',
+'        d[ch] = d[ch] + 1 \n', '    else:\n', '        d[ch] = 1\n', '\n', 'pri
+nt(d)        \n', '#########################################\n', '#[]  list - Mu
+table, Indexing-A, Duplicates - A, IO - A \n', '#()      tuple - Immutable, ----
+--above------\n', '#\n', '#{}  set - Mutable , Indexing - NA, Duplicates-NA, IO-
+NA \n', '#        frozenset - Immutable , ---- above----\n', '#-----------------
+--------\n', '#dict - k,v - K is set, V can be anything\n', '#\n', '#-----------
+---------\n', '#create empty list \n', '#take each element(e) from l \n', '#
+Check if e is odd\n', '#    then only append to empty list \n', '#    \n', '
+\n', "s = '[1,2,3,4,5]'\n", 'res = []\n', "#strip s with '[]' and then split wit
+h ','\n", "#tmp1 = s.strip('[]')\n", '\n', "for e in s.strip('[]').split(','):\n
+", '    res.append(int(e)) \n', '    \n', '    \n', '    \n', '    \n', '    \n'
+, '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n', '\n',
+'    \n', '    \n', '    \n', '    \n', '    \n', '    \n', '    \n', '    \n']
+>>> #Give me length of each line
+...
+>>> [ len(e)  for e in lines]
+[12, 1, 17, 17, 1, 24, 1, 25, 18, 7, 7, 7, 7, 1, 13, 12, 18, 22, 26, 17, 13, 5,
+41, 7, 13, 17, 27, 10, 18, 1, 17, 42, 57, 46, 2, 58, 48, 27, 42, 2, 22, 20, 30,
+23, 37, 6, 5, 18, 9, 43, 22, 1, 35, 24, 5, 5, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1
+, 1, 1, 1, 1, 5, 5, 5, 5, 5, 5, 5, 5]
+>>> #give me line number and it's length
+...
+>>> el = list(enumerate(lines))
+>>> el
+[(0, 'import sys \n'), (1, '\n'), (2, '#a = sys.argv[1]\n'), (3, '#b = sys.argv[
+2]\n'), (4, '\n'), (5, '#print(int(a) + int(b))\n'), (6, '\n'), (7, '###########
+#############\n'), (8, 's = "Hello World"\n'), (9, '#H - 1\n'), (10, '#e - 1\n')
+, (11, '#l - 3\n'), (12, 'd = {}\n'), (13, '\n'), (14, 'for ch in s:\n'), (15, '
+    cnt = 0\n'), (16, '    for ch1 in s:\n'), (17, '        if ch == ch1:\n'), (
+18, '            cnt = cnt + 1\n'), (19, '    d[ch] = cnt \n'), (20, '    print(
+d)\n'), (21, '    \n'), (22, '########################################\n'), (23,
+ 'd = {}\n'), (24, 'for ch in s:\n'), (25, '    if ch in d: \n'), (26, '
+d[ch] = d[ch] + 1 \n'), (27, '    else:\n'), (28, '        d[ch] = 1\n'), (29, '
+\n'), (30, 'print(d)        \n'), (31, '########################################
+#\n'), (32, '#[]  list - Mutable, Indexing-A, Duplicates - A, IO - A \n'), (33,
+'#()      tuple - Immutable, ------above------\n'), (34, '#\n'), (35, '#{}  set
+- Mutable , Indexing - NA, Duplicates-NA, IO-NA \n'), (36, '#        frozenset -
+ Immutable , ---- above----\n'), (37, '#-------------------------\n'), (38, '#di
+ct - k,v - K is set, V can be anything\n'), (39, '#\n'), (40, '#----------------
+----\n'), (41, '#create empty list \n'), (42, '#take each element(e) from l \n')
+, (43, '#    Check if e is odd\n'), (44, '#    then only append to empty list \n
+'), (45, '#    \n'), (46, '    \n'), (47, "s = '[1,2,3,4,5]'\n"), (48, 'res = []
+\n'), (49, "#strip s with '[]' and then split with ','\n"), (50, "#tmp1 = s.stri
+p('[]')\n"), (51, '\n'), (52, "for e in s.strip('[]').split(','):\n"), (53, '
+ res.append(int(e)) \n'), (54, '    \n'), (55, '    \n'), (56, '    \n'), (57, '
+    \n'), (58, '    \n'), (59, '\n'), (60, '\n'), (61, '\n'), (62, '\n'), (63, '
+\n'), (64, '\n'), (65, '\n'), (66, '\n'), (67, '\n'), (68, '\n'), (69, '\n'), (7
+0, '\n'), (71, '\n'), (72, '    \n'), (73, '    \n'), (74, '    \n'), (75, '
+\n'), (76, '    \n'), (77, '    \n'), (78, '    \n'), (79, '    \n')]
+>>>
+>>>
+>>> {t[0]:len(t[1])  for t in el}
+{0: 12, 1: 1, 2: 17, 3: 17, 4: 1, 5: 24, 6: 1, 7: 25, 8: 18, 9: 7, 10: 7, 11: 7,
+ 12: 7, 13: 1, 14: 13, 15: 12, 16: 18, 17: 22, 18: 26, 19: 17, 20: 13, 21: 5, 22
+: 41, 23: 7, 24: 13, 25: 17, 26: 27, 27: 10, 28: 18, 29: 1, 30: 17, 31: 42, 32:
+57, 33: 46, 34: 2, 35: 58, 36: 48, 37: 27, 38: 42, 39: 2, 40: 22, 41: 20, 42: 30
+, 43: 23, 44: 37, 45: 6, 46: 5, 47: 18, 48: 9, 49: 43, 50: 22, 51: 1, 52: 35, 53
+: 24, 54: 5, 55: 5, 56: 5, 57: 5, 58: 5, 59: 1, 60: 1, 61: 1, 62: 1, 63: 1, 64:
+1, 65: 1, 66: 1, 67: 1, 68: 1, 69: 1, 70: 1, 71: 1, 72: 5, 73: 5, 74: 5, 75: 5,
+76: 5, 77: 5, 78: 5, 79: 5}
+>>> {t[0]+1:len(t[1])  for t in el}
+{1: 12, 2: 1, 3: 17, 4: 17, 5: 1, 6: 24, 7: 1, 8: 25, 9: 18, 10: 7, 11: 7, 12: 7
+, 13: 7, 14: 1, 15: 13, 16: 12, 17: 18, 18: 22, 19: 26, 20: 17, 21: 13, 22: 5, 2
+3: 41, 24: 7, 25: 13, 26: 17, 27: 27, 28: 10, 29: 18, 30: 1, 31: 17, 32: 42, 33:
+ 57, 34: 46, 35: 2, 36: 58, 37: 48, 38: 27, 39: 42, 40: 2, 41: 22, 42: 20, 43: 3
+0, 44: 23, 45: 37, 46: 6, 47: 5, 48: 18, 49: 9, 50: 43, 51: 22, 52: 1, 53: 35, 5
+4: 24, 55: 5, 56: 5, 57: 5, 58: 5, 59: 5, 60: 1, 61: 1, 62: 1, 63: 1, 64: 1, 65:
+ 1, 66: 1, 67: 1, 68: 1, 69: 1, 70: 1, 71: 1, 72: 1, 73: 5, 74: 5, 75: 5, 76: 5,
+ 77: 5, 78: 5, 79: 5, 80: 5}
+>>> import sys
+>>> dir(sys)
+['__displayhook__', '__doc__', '__excepthook__', '__interactivehook__', '__loade
+r__', '__name__', '__package__', '__spec__', '__stderr__', '__stdin__', '__stdou
+t__', '_clear_type_cache', '_current_frames', '_debugmallocstats', '_getframe',
+'_home', '_mercurial', '_xoptions', 'api_version', 'argv', 'base_exec_prefix', '
+base_prefix', 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats',
+'copyright', 'displayhook', 'dllhandle', 'dont_write_bytecode', 'exc_info', 'exc
+epthook', 'exec_prefix', 'executable', 'exit', 'flags', 'float_info', 'float_rep
+r_style', 'get_coroutine_wrapper', 'getallocatedblocks', 'getcheckinterval', 'ge
+tdefaultencoding', 'getfilesystemencoding', 'getprofile', 'getrecursionlimit', '
+getrefcount', 'getsizeof', 'getswitchinterval', 'gettrace', 'getwindowsversion',
+ 'hash_info', 'hexversion', 'implementation', 'int_info', 'intern', 'is_finalizi
+ng', 'maxsize', 'maxunicode', 'meta_path', 'modules', 'path', 'path_hooks', 'pat
+h_importer_cache', 'platform', 'prefix', 'ps1', 'ps2', 'set_coroutine_wrapper',
+'setcheckinterval', 'setprofile', 'setrecursionlimit', 'setswitchinterval', 'set
+trace', 'stderr', 'stdin', 'stdout', 'thread_info', 'version', 'version_info', '
+warnoptions', 'winver']
+>>> sys.stdin.readline()
+123
+'123\n'
+>>> print("Hello")
+Hello
+>>> sys.stdout.writelines(["Hello"])
+Hello>>>
+>>> import time
+>>> dir(time)
+['_STRUCT_TM_ITEMS', '__doc__', '__loader__', '__name__', '__package__', '__spec
+__', 'altzone', 'asctime', 'clock', 'ctime', 'daylight', 'get_clock_info', 'gmti
+me', 'localtime', 'mktime', 'monotonic', 'perf_counter', 'process_time', 'sleep'
+, 'strftime', 'strptime', 'struct_time', 'time', 'timezone', 'tzname']
+>>> time.sleep(1)
+>>> import math
+>>> dir(math)
+['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh'
+, 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos', 'cosh',
+'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fm
+od', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'is
+inf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan'
+, 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+>>> math.sqrt(4)
+2.0
+>>> math.sqrt(4.457)
+2.1111608181282637
+>>> import random
+>>> dir(random)
+['BPF', 'LOG4', 'NV_MAGICCONST', 'RECIP_BPF', 'Random', 'SG_MAGICCONST', 'System
+Random', 'TWOPI', '_BuiltinMethodType', '_MethodType', '_Sequence', '_Set', '__a
+ll__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__nam
+e__', '__package__', '__spec__', '_acos', '_ceil', '_cos', '_e', '_exp', '_inst'
+, '_log', '_pi', '_random', '_sha512', '_sin', '_sqrt', '_test', '_test_generato
+r', '_urandom', '_warn', 'betavariate', 'choice', 'expovariate', 'gammavariate',
+ 'gauss', 'getrandbits', 'getstate', 'lognormvariate', 'normalvariate', 'paretov
+ariate', 'randint', 'random', 'randrange', 'sample', 'seed', 'setstate', 'shuffl
+e', 'triangular', 'uniform', 'vonmisesvariate', 'weibullvariate']
+>>> random.randint(10,20)
+11
+>>> import datetime
+>>> dir(datetime)
+['MAXYEAR', 'MINYEAR', '__builtins__', '__cached__', '__doc__', '__file__', '__l
+oader__', '__name__', '__package__', '__spec__', '_divide_and_round', 'date', 'd
+atetime', 'datetime_CAPI', 'time', 'timedelta', 'timezone', 'tzinfo']
+>>> d = datetime.date.today()
+>>> d
+datetime.date(2017, 11, 21)
+>>> d + datetime.timedelta(days=365)
+datetime.date(2018, 11, 21)
+>>> help(datetime.date)
+Help on class date in module datetime:
+
+class date(builtins.object)
+ |  date(year, month, day) --> date object
+ |
+ |  Methods defined here:
+ |
+ |  __add__(self, value, /)
+ |      Return self+value.
+ |
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |
+ |  __format__(...)
+ |      Formats self with strftime.
+ |
+ |  __ge__(self, value, /)
+
+>>> import csv
+>>> with open(r".\data\example.csv", "rt") as f:
+...     cs = csv.reader(f)
+...     rows = list(cs)
+...
+>>>
+>>> rows
+[['Spam', ' Spam', ' Spam', ' Spam', ' Spam', ' Baked Beans'], ['Spam', ' Lovely
+ Spam', ' Wonderful Spam']]
+>>> for e in rows:
+...     print(e)
+...
+['Spam', ' Spam', ' Spam', ' Spam', ' Spam', ' Baked Beans']
+['Spam', ' Lovely Spam', ' Wonderful Spam']
+>>> import sys
+>>> sys.version
+'3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AMD64)]'
+
+>>> quit()
+
+D:\Desktop\PPT\python\hands>python
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+
+D:\Desktop\PPT\python\hands>python
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pkg.mex
+>>> pkg.mex(4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'module' object is not callable
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> import pkg.mex
+>>> pkg.mex.square(4)
+16
+>>> help(pkg.mex.square)
+Help on function square in module pkg.mex:
+
+square(x)
+    First function
+    square
+
+>>> dir(pkg.mex)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__',
+'__package__', '__spec__', 'square']
+>>> pkg.mex.__file__
+'D:\\Desktop\\PPT\\python\\hands\\pkg\\mex.py'
+>>> import sys
+>>> sys.path
+['', 'c:\\python35\\python35.zip', 'c:\\python35\\DLLs', 'c:\\python35\\lib', 'c
+:\\python35', 'c:\\python35\\lib\\site-packages']
+>>> quit()
+
+D:\Desktop\PPT\python\hands>pip install requests
+Requirement already satisfied (use --upgrade to upgrade): requests in c:\python3
+5\lib\site-packages
+Requirement already satisfied (use --upgrade to upgrade): certifi>=2017.4.17 in
+c:\python35\lib\site-packages (from requests)
+Requirement already satisfied (use --upgrade to upgrade): urllib3<1.23,>=1.21.1
+in c:\python35\lib\site-packages (from requests)
+Requirement already satisfied (use --upgrade to upgrade): chardet<3.1.0,>=3.0.2
+in c:\python35\lib\site-packages (from requests)
+Requirement already satisfied (use --upgrade to upgrade): idna<2.7,>=2.5 in c:\p
+ython35\lib\site-packages (from requests)
+You are using pip version 8.1.1, however version 9.0.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' comm
+and.
+
+D:\Desktop\PPT\python\hands>python
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+
+D:\Desktop\PPT\python\hands>python
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pkg.mex
+>>> def many_add(x,y,z):
+...     return x+y+z
+...
+>>> many_add(1,2,3)
+6
+>>> many_add(y=3,z=6,x=1)
+10
+>>> def many_add(x,y,z=10):
+...     return x+y+z
+...
+>>> many_add(1,2)
+13
+>>> many_add(1,2,30)
+33
+>>> help(many_add)
+Help on function many_add in module __main__:
+
+many_add(x, y, z=10)
+
+>>> def f(*args, **kargs):
+...     return [args, kargs]
+...
+>>>
+>>> def many_add(x,y,z):
+...     return x+y+z
+...
+>>> many_add(1,2,3)
+6
+>>> many_add("Hello"," W","orld")
+'Hello World'
+>>> many_add([1], [2], [3])
+[1, 2, 3]
+>>> def many_add(z,x,y):
+...     return x+y+z
+...
+>>> help(sum)
+Help on built-in function sum in module builtins:
+
+sum(iterable, start=0, /)
+    Return the sum of a 'start' value (default: 0) plus an iterable of numbers
+
+    When the iterable is empty, return the start value.
+    This function is intended specifically for use with numeric values and may
+    reject non-numeric types.
+
+>>> sum([1,2,3])
+6
+>>> quit()
+
+D:\Desktop\PPT\python\hands>python
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
+D64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pkg.mex
+>>> pkg.mex.mean([1,2,3])
+2.0
+>>> max([1,2,3,4])
+4
+>>> l = ['a', 'aaa', 'bbbb']
+>>> d = {len(e):e for e in l}
+>>> d
+{1: 'a', 3: 'aaa', 4: 'bbbb'}
+>>> lengths = d.keys()
+>>> lengths
+dict_keys([1, 3, 4])
+>>> max_length = max(lengths)
+>>> max_lenth
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'max_lenth' is not defined
+>>> max_length
+4
+>>> d[max_length]
+'bbbb'
+>>>
+>>>
+>>> type(list)
+<class 'type'>
+>>>
+>>>
+>>> a = 1
+>>> b = 2
+>>> a,b = b,a
+>>> a
+2
+>>> b
+1
+>>> a,*b, c= 1,2,3,4
+>>> a,b,c
+(1, [2, 3], 4)
+>>> a,*b, c= 1,2
+>>> a,b,c
+(1, [], 2)
+>>>
+>>> def f(*args):
+...     print(type(args),args)
+...
+>>> f(1,2,3,4,5)
+<class 'tuple'> (1, 2, 3, 4, 5)
+>>> f(1)
+<class 'tuple'> (1,)
+>>> f()
+<class 'tuple'> ()
+>>> def mysum(*lst):
+...     return sum(lst)/len(lst)
+...
+>>> mysum(1,2,3,4)
+2.5
+>>> l = [1,2,3]
+>>> mysum(l)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in mysum
+TypeError: unsupported operand type(s) for +: 'int' and 'list'
+>>> mysum(*l)
+2.0
+>>>
+>>> type( (1,2) )
+<class 'tuple'>
+>>> type( (1,2,3) )
+<class 'tuple'>
+>>> type( (1) )
+<class 'int'>
+>>> type( (1,) )
+<class 'tuple'>
+>>> def add(x,y):
+...     return x+y
+...
+>>> add(1,2)
+3
+>>> type(add)
+<class 'function'>
+>>> f = lambda x,y: x+y
+>>> f(1,2)
+3
+>>> type(f)
+<class 'function'>
+>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
